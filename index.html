@@ -16,32 +16,41 @@
             <h1 class="heading">Book Library</h1>
         </div>
         <div class="library-container">
-            <button id="addBookbtn" class="btn" onclick="openForm()">Add Book</button>
-            <!-- Form adding book -->
-            <div id="form" class="formPopUp">
-                <form id="form-container">
-                    <h1>Add book to Library</h1>
-                    <h3>Please fill out the info below</h3>
+            <button id="addBookBtn" class="btn">Add Book</button>
+            <div id="book-container">
+
+            </div>
+        </div>
+        <!-- Form adding book -->
+        <div id="form-container" class="formPopUp">
+            <div id="form">
+                <h1 id="formHeading">Add book to Library</h1>
+                
+                <div class="form-element">
                     <!-- Book Name -->
                     <label class="book name">Book Name</label>
                     <input type="text" placeholder="Enter book name">
+                </div>
+                <div class="form-element">
                     <!-- Author -->
                     <label class="book author">Author</label>
                     <input type="text" placeholder="Written by">
+                </div>
+                <div class="form-element">
                     <!-- Pages -->
                     <label class="book pages">Amount of pages</label>
                     <input type="text" placeholder="Enter book length">
+                </div>
+                <div class="form-element">
                     <!-- Check if read -->
-                    <label class="book read">Finished?</label>
+                    <label class=" read">Finished?</label>
                     <input type="checkbox" id="finishedCheck" name="finished" value="finished">
+                </div>
+                <div class="form-element">
                     <!-- Close and Submit Button -->
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    <button type="button" id="closeBtn" class="btn cancel">Close</button>
                     <button type="submit" class="btn">Submit</button>
-                    
-                </form>
-            </div>
-
-            <div id="book-container">
+                </div>
 
             </div>
         </div>
