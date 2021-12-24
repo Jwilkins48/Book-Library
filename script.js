@@ -1,5 +1,11 @@
-const formContainer = document.getElementById('form');
+const addBookBtn = document.getElementById('addBookBtn');
+const formContainer = document.getElementById('form-container');
+const closeBtn = document.getElementById('closeBtn');
 
+addBookBtn.addEventListener('click', function(){
+    formContainer.classList.add('active');
+});
 
-let openForm = () => {formContainer.style.display = 'block';}
-let closeForm = () => {formContainer.style.display = 'none';}
+closeBtn.addEventListener('click', function(){
+    formContainer.classList.remove('active');
+});
