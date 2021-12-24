@@ -11,50 +11,52 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="container">
         <div class="header">
             <h1 class="heading">Book Library</h1>
         </div>
         <div class="library-container">
-            <button id="addBookBtn" class="btn">Add Book</button>
+            <button id="addBookBtn">Add Book</button>
             <div id="book-container">
 
             </div>
         </div>
-        <!-- Form adding book -->
-        <div id="form-container" class="formPopUp">
-            <div id="form">
-                <h1 id="formHeading">Add book to Library</h1>
-                
-                <div class="form-element">
-                    <!-- Book Name -->
-                    <label class="book name">Book Name</label>
-                    <input type="text" placeholder="Enter book name">
-                </div>
-                <div class="form-element">
-                    <!-- Author -->
-                    <label class="book author">Author</label>
-                    <input type="text" placeholder="Written by">
-                </div>
-                <div class="form-element">
-                    <!-- Pages -->
-                    <label class="book pages">Amount of pages</label>
-                    <input type="text" placeholder="Enter book length">
-                </div>
-                <div class="form-element">
-                    <!-- Check if read -->
-                    <label class=" read">Finished?</label>
-                    <input type="checkbox" id="finishedCheck" name="finished" value="finished">
-                </div>
-                <div class="form-element">
-                    <!-- Close and Submit Button -->
-                    <button type="button" id="closeBtn" class="btn cancel">Close</button>
-                    <button type="submit" class="btn">Submit</button>
-                </div>
+    </div>
+    <!-- Form adding book -->
+    <div id="form-container" class="formPopUp">
+        <div id="form">
+            <h1 id="formHeading">Add book to Library</h1>
 
+            <div class="form-element">
+                <!-- Book Name -->
+                <label class="book name">Book Name</label>
+                <input type="text" placeholder="Enter book name">
             </div>
+            <div class="form-element">
+                <!-- Author -->
+                <label class="book author">Author</label>
+                <input type="text" placeholder="Written by">
+            </div>
+            <div class="form-element">
+                <!-- Pages -->
+                <label class="book pages">Amount of pages</label>
+                <input type="text" placeholder="Enter book length">
+            </div>
+            <div class="form-element finished">
+                <!-- Check if read -->
+                <label class="book read">Finished?</label>
+                <input type="checkbox" id="finishedCheck" name="finished" value="finished">
+               
+            </div>
+            <div class="form-element">
+                <!-- Close and Submit Button -->
+                <button type="submit"  id="submitBtn" class="btn submit">Add</button>
+                <button type="button" id="closeBtn" class="btn cancel">Close</button>
+            </div>
+
         </div>
     </div>
+
 </body>
 
 </html>
