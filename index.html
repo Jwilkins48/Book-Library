@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="heading">Book Library</h1>
+        </div>
+        <div class="library-container">
+            <button id="addBookbtn" class="btn" onclick="openForm()">Add Book</button>
+            <!-- Form adding book -->
+            <div id="form" class="formPopUp">
+                <form id="form-container">
+                    <h1>Add book to Library</h1>
+                    <h3>Please fill out the info below</h3>
+                    <!-- Book Name -->
+                    <label class="book name">Book Name</label>
+                    <input type="text" placeholder="Enter book name">
+                    <!-- Author -->
+                    <label class="book author">Author</label>
+                    <input type="text" placeholder="Written by">
+                    <!-- Pages -->
+                    <label class="book pages">Amount of pages</label>
+                    <input type="text" placeholder="Enter book length">
+                    <!-- Check if read -->
+                    <label class="book read">Finished?</label>
+                    <input type="checkbox" id="finishedCheck" name="finished" value="finished">
+                    <!-- Close and Submit Button -->
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    <button type="submit" class="btn">Submit</button>
+                    
+                </form>
+            </div>
+
+            <div id="book-container">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
