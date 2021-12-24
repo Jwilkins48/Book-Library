@@ -1,13 +1,23 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Patrick+Hand&family=Questrial&family=Righteous&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     height: 100vh;
 }
 
-#addBookBtn{
+/* Change background when form appears */
+#container.inactive {
+    opacity: .5;
+    background-color: gray;
+    height: 100%;
+}
+
+#addBookBtn {
     padding: 10px;
     width: 150px;
     border-radius: 8px;
@@ -16,8 +26,10 @@ body{
     background-color: rgb(44, 42, 42);
     cursor: pointer;
 }
+
 /* Form */
-#form-container{
+#form-container {
+    font-family: 'Patrick Hand', cursive;
     position: absolute;
     top: -150%;
     left: 50%;
@@ -30,46 +42,93 @@ body{
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: top 0ms ease-in-out 200ms,
-                opacity 200ms ease-in-out 0ms,
-                transform 20ms ease-in-out 0ms;
+        opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
 }
 
-#form-container.active{
+/* When add button is pressed */
+#form-container.active {
     top: 50%;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
     transition: top 0ms ease-in-out 0ms,
-                opacity 200ms ease-in-out 0ms,
-                transform 20ms ease-in-out 0ms;
+        opacity 200ms ease-in-out 0ms,
+        transform 20ms ease-in-out 0ms;
 }
 
-#form h1{
+#form h1 {
     text-align: center;
     margin: 10px 0 20px;
+    font-family: 'Lobster Two', cursive;
 }
 
-.form-element{
+.form-element {
     margin: 15px 0;
 }
-.read{
-    font-size: 18px;
-}
 
-.book{
-    font-size: 18px;
+
+
+.book {
+    font-size: 22px;
     display: flex;
     justify-content: center;
     padding: 5px;
 }
-input[type='text']{
+
+input[type='text'] {
     margin: 5px;
     display: block;
     width: 100%;
     padding: 10px;
     border-radius: 6px;
-    border: solid 1px rgb(44, 42, 42); 
+    border: solid 1px rgb(44, 42, 42);
+    font-family: 'Patrick Hand', cursive;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
-input[type='checkbox']{
-    margin: 5px;
 
+/* Form buttons */
+#form .btn {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 150px;
+    height: 40px;
+    margin: 6px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #aef6f8;
+    border: solid 1px #76eff3;
+    background-color: #272b2b;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    transition: transform .25s;
+}
+
+#form .btn:active {
+    transform: scale(.94)
+}
+
+#form .btn:hover {
+    background-color: #aef6f8;
+    border: solid 2px #363838;
+    color: #282929;
+}
+
+/* CheckMark */
+input[type='checkbox'] {
+    margin: 5px;
+    cursor: pointer;
+
+}
+
+.finished {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.read {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
 }
