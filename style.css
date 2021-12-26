@@ -9,7 +9,9 @@
 body {
     height: 100vh;
     background-color: #242929f3;
+    font-family: 'Patrick Hand', cursive;
 }
+
 
 /* Change background when form appears */
 #container.inactive {
@@ -31,15 +33,56 @@ body {
 }
 
 #addBookBtn {
-    padding: 10px;
+    padding: 14px;
     width: 150px;
     border-radius: 8px;
-    border: solid 1px #76eff3;
-    color: #76eff3;
-    background-color: rgb(44, 42, 42);
+    border: solid 2px #1e2222;
+    color: #1e2222;
+    background-color: #76eff3;
     cursor: pointer;
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    letter-spacing: 1px;
+    transition: .25s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#addBookBtn:hover {
+    background-color: #8bebee;
+    transform: scale(1.1)
+}
+#addBookBtn:active{
+    transform: scale(.98)
 }
 
+#book-container{
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 45px;
+}
+
+.defaultBook{
+    border: solid 2px #1e2222;
+    border-radius: 9px;
+    text-align: center;
+    width: 350px;
+    height: 250px;
+    background-color: #8bebeee3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    letter-spacing: 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.readBook.notRead{
+    color: rgb(245, 35, 35);
+}
+.readBook.read{
+    color: rgb(31, 168, 31);
+}
 
 
 /* Form */
