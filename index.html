@@ -19,15 +19,9 @@
             <button id="addBookBtn">Add Book</button>
             <div id="book-container">
                 <div class="defaultBook">
-                    <h1 class="bookTitle">Book Name</h1>
-                    <h2 class="bookAuthor">Author Name</h2>
-                    <h2 class="bookPages">Pages</h2>
-                    <h2 class="readBook">Read</h2>
-                </div>
-                <div class="defaultBook">
-                    <h1 class="bookTitle">Book Name</h1>
-                    <h2 class="bookAuthor">Author Name</h2>
-                    <h2 class="bookPages">Pages</h2>
+                    <h1 class="bookTitle">Game of Thrones</h1>
+                    <h2 class="bookAuthor">George RR Martin</h2>
+                    <h2 class="bookPages">1200</h2>
                     <h2 class="readBook">Read</h2>
                 </div>
             </div>
@@ -37,26 +31,27 @@
     <div id="form-container" class="formPopUp">
         <div id="form">
             <h1 id="formHeading">Add book to Library</h1>
-
+                
             <div class="form-element">
                 <!-- Book Name -->
-                <label class="book name" id="bookName">Book Name</label>
-                <input type="text" placeholder="Enter book name">
+                <label class="book name">Book Name</label>
+                <input type="text" id="bookName" placeholder="Enter book name">
             </div>
             <div class="form-element">
                 <!-- Author -->
-                <label class="book author" id="authorName">Author</label>
-                <input type="text" placeholder="Written by">
+                <label class="book author" >Author</label>
+                <input type="text" id="authorName" placeholder="Written by">
             </div>
             <div class="form-element">
                 <!-- Pages -->
-                <label class="book pages" id="pageAmount">Amount of pages</label>
-                <input type="text" placeholder="Enter book length">
+                <label class="book pages">Amount of pages</label>
+                <input type="text" id="pageAmount" placeholder="Enter book length">
             </div>
             <div class="form-element finished">
                 <!-- Check if read -->
                 <label class="book read" id="haveRead">Finished?</label>
                 <input type="checkbox" id="finishedCheck" name="finished" value="finished">
+                <p id="finishedDisplay"> </p>
 
             </div>
             <div class="form-element">
