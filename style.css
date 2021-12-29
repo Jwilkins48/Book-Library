@@ -78,13 +78,25 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin: 45px 70px;
 }
-.readBook.notRead{
-    color: rgb(245, 35, 35);
-}
-.readBook.read{
-    color: rgb(31, 168, 31);
-}
 
+.delete{
+    width: 125px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: solid 1px #8bebeee3;
+    background-color: #262929;
+    color: #8bebeee3;
+    cursor: pointer;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 20px;
+    padding: 5px;
+}
+.delete:hover{
+    background-color: #ff00009c;
+    color: #262929;
+    border: solid 1px #262929;
+}
 
 /* Form */
 #form-container {
