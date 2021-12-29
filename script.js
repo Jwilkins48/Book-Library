@@ -5,6 +5,7 @@ const formContainer = document.getElementById('form-container');
 const closeBtn = document.getElementById('closeBtn');
 const addBtn = document.querySelector('#submitBtn');
 const bookContainer = document.getElementById('book-container');
+const deleteBtn = document.querySelector('#deleteBtn');
 
 let readBook = document.querySelector('.readBook');
 let finishedDisplay = document.getElementById('finishedDisplay');
@@ -16,14 +17,12 @@ let inputs = document.querySelectorAll('input');
 let myLibrary = [];
 
 
-
 // Take input and place in object
 let addToLibrary = () => {
     const title = bookNameInput.value;
     const author = authorNameInput.value;
     const pages = pageAmountInput.value;
-    let read = readBook.innerHTML;
-    
+    let read = isRead();
 
     if (title && author && pages) {
         const newBook = {
@@ -32,11 +31,6 @@ let addToLibrary = () => {
             pages,
             read
         }
-        // if (checkbox.checked === true){
-        //     read.innerHTML = 'read'
-        // }else {
-        //     read.innerHTML = 'Not read'
-        // };
         createCard(newBook);
 
         title.value = '';
@@ -59,15 +53,33 @@ let createCard = (book) => {
     bookDiv.innerHTML = `<h1 class="bookTitle">${book.title}</h1>
     <h2 class="bookAuthor">${book.author}</h2>
     <h2 class="bookPages">${book.pages}</h2>
-    <h2 class="readBook">${book.read}</h2>`
+    <h2 class="readBook">${book.read}</h2>
+    <button id="deleteBtn" class="delete">Delete</button>`
 
     myLibrary.push(bookDiv);
     console.log(myLibrary);
 }
 
 
+let isRead = () => {
+    if (checkbox.checked == true) {
+        return 'read'
+    } else {
+        return 'not read'
+    }
+}
+
+// let deleteBook = () => {
+//     document.body.removeChild(bookDiv);
+// }
+
+// Open form
+let open = () => {
+    formContainer.classList.add('active');
+    pageContainer.classList.add('inactive');
+}
 // Close form
-function close() {
+let close = () => {
     formContainer.classList.remove('active');
     pageContainer.classList.remove('inactive');
 
@@ -76,10 +88,7 @@ function close() {
     pageAmountInput.value = '';
 }
 
-addBookBtn.addEventListener('click', function () {
-    formContainer.classList.add('active');
-    pageContainer.classList.add('inactive');
-});
-
+addBookBtn.addEventListener('click', open)
 closeBtn.addEventListener('click', close);
 addBtn.addEventListener('click', addToLibrary);
+deleteBtn.addEventListener('click', deleteBook);
