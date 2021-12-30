@@ -6,6 +6,7 @@ const closeBtn = document.getElementById('closeBtn');
 const addBtn = document.querySelector('#submitBtn');
 const bookContainer = document.getElementById('book-container');
 const deleteBtn = document.querySelector('#deleteBtn');
+const defaultBook = document.querySelector('.defaultBook');
 
 let readBook = document.querySelector('.readBook');
 let finishedDisplay = document.getElementById('finishedDisplay');
@@ -17,26 +18,28 @@ let inputs = document.querySelectorAll('input');
 let myLibrary = [];
 
 
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
+
 // Take input and place in object
 let addToLibrary = () => {
-    const title = bookNameInput.value;
-    const author = authorNameInput.value;
-    const pages = pageAmountInput.value;
-    let read = isRead();
+    this.title = bookNameInput.value;
+    this.author = authorNameInput.value;
+    this.pages = pageAmountInput.value;
+    this.read = isRead();
 
     if (title && author && pages) {
-        const newBook = {
+        const newBook = new Book(
             title,
             author,
             pages,
             read
-        }
+        )
         createCard(newBook);
-
-        title.value = '';
-        author.value = '';
-        pages.value = '';
-
         close();
     } else {
         alert('Please fill out all fields');
@@ -45,22 +48,40 @@ let addToLibrary = () => {
 
 // Create new book div
 let createCard = (book) => {
+    // Creates h2 titles
+    let createH2Element = (text) => {
+        let element = document.createElement("H2");
+        let elementText = document.createTextNode(text);
+        element.appendChild(elementText);
+        bookDiv.appendChild(element);
+    }
+    // Book div and Delete Button
     let bookDiv = document.createElement('div');
+    let deleteCard = document.createElement('button');
+    let deleteCardText = document.createTextNode('Delete');
+    deleteCard.appendChild(deleteCardText);
+    deleteCard.classList.add('delete');
+    deleteCard.onclick = deleteBook();
     bookDiv.classList.add('defaultBook');
 
-    bookContainer.appendChild(bookDiv);
+    // Creating h1 book title
+    let titleDiv = document.createElement('h1');
+    let titleInput = document.createTextNode(`${this.title}`);
+    titleDiv.appendChild(titleInput)
 
-    bookDiv.innerHTML = `<h1 class="bookTitle">${book.title}</h1>
-    <h2 class="bookAuthor">${book.author}</h2>
-    <h2 class="bookPages">${book.pages}</h2>
-    <h2 class="readBook">${book.read}</h2>
-    <button id="deleteBtn" class="delete">Delete</button>`
+    bookDiv.appendChild(titleDiv);
+    createH2Element(this.author);
+    createH2Element(this.pages);
+    createH2Element(this.read);
+    bookDiv.appendChild(deleteCard);
+    bookContainer.appendChild(bookDiv);
 
     myLibrary.push(bookDiv);
     console.log(myLibrary);
 }
 
 
+// Check if checkbox was pressed
 let isRead = () => {
     if (checkbox.checked == true) {
         return 'read'
@@ -69,9 +90,6 @@ let isRead = () => {
     }
 }
 
-// let deleteBook = () => {
-//     document.body.removeChild(bookDiv);
-// }
 
 // Open form
 let open = () => {
@@ -88,7 +106,7 @@ let close = () => {
     pageAmountInput.value = '';
 }
 
+
 addBookBtn.addEventListener('click', open)
 closeBtn.addEventListener('click', close);
 addBtn.addEventListener('click', addToLibrary);
-deleteBtn.addEventListener('click', deleteBook);
