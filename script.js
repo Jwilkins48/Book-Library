@@ -46,29 +46,29 @@ let addToLibrary = () => {
     };
 };
 
+
 // Create new book div
-let createCard = (book) => {
+let createCard = (i) => {
+
     // Creates h2 titles
     let createH2Element = (text) => {
         let element = document.createElement("H2");
-        let elementText = document.createTextNode(text);
-        element.appendChild(elementText);
+        element.textContent = text;
         bookDiv.appendChild(element);
     }
     // Book div and Delete Button
     let bookDiv = document.createElement('div');
-    let deleteCard = document.createElement('button');
-    let deleteCardText = document.createTextNode('Delete');
-    deleteCard.appendChild(deleteCardText);
-    deleteCard.classList.add('delete');
-    deleteCard.onclick = deleteBook();
     bookDiv.classList.add('defaultBook');
+
+    let deleteCard = document.createElement('button');
+    deleteCard.textContent = 'Delete';
+    deleteCard.classList.add('delete');
 
     // Creating h1 book title
     let titleDiv = document.createElement('h1');
-    let titleInput = document.createTextNode(`${this.title}`);
-    titleDiv.appendChild(titleInput)
+    titleDiv.textContent = this.title;
 
+    // Display all on card
     bookDiv.appendChild(titleDiv);
     createH2Element(this.author);
     createH2Element(this.pages);
@@ -76,10 +76,15 @@ let createCard = (book) => {
     bookDiv.appendChild(deleteCard);
     bookContainer.appendChild(bookDiv);
 
+    // Delete button
+    deleteCard.addEventListener('click', () => {
+        bookContainer.removeChild(bookDiv);
+        myLibrary.splice(bookDiv, 1);
+    });
+
     myLibrary.push(bookDiv);
     console.log(myLibrary);
 }
-
 
 // Check if checkbox was pressed
 let isRead = () => {
@@ -89,7 +94,6 @@ let isRead = () => {
         return 'not read'
     }
 }
-
 
 // Open form
 let open = () => {
@@ -105,7 +109,6 @@ let close = () => {
     authorNameInput.value = '';
     pageAmountInput.value = '';
 }
-
 
 addBookBtn.addEventListener('click', open)
 closeBtn.addEventListener('click', close);
