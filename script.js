@@ -51,10 +51,7 @@ let addToLibrary = () => {
 
 // Create new book div
 let createCard = (i) => {
-
-
-
-
+    
     // Creates h2 titles
     let createH2Element = (text) => {
         let element = document.createElement("H2");
@@ -80,12 +77,16 @@ let createCard = (i) => {
     let titleDiv = document.createElement('h1');
     titleDiv.textContent = this.title;
 
-
     // Display all on card
     bookDiv.appendChild(titleDiv);
     createH2Element(this.author);
     createH2Element(this.pages);
-    createH2Element(this.read);
+
+    // Read Label
+    let readCheck = document.createElement("H2");
+    readCheck.textContent = (this.read);
+    bookDiv.appendChild(readCheck);
+
     buttonDiv.appendChild(deleteCard);
     buttonDiv.appendChild(changeStatus);
     bookDiv.appendChild(buttonDiv);
@@ -97,8 +98,13 @@ let createCard = (i) => {
         myLibrary.splice(bookDiv, 1);
     });
 
-    changeStatus.addEventListener('click', function(){
-       console.log(this.read);
+    //Change from read/not read
+    changeStatus.addEventListener('click', function () {
+        if (readCheck.innerHTML == 'read') {
+            readCheck.innerHTML = 'Not read'
+        } else {
+            readCheck.innerHTML = 'read';
+        }
     })
 
 
