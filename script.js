@@ -115,13 +115,6 @@ let isRead = () => {
     }
 }
 
-function changeBookStatus(book) {
-    if (myLibrary[book].read === "read") {
-        myLibrary[book].read = "not read";
-    } else myLibrary[book].read = "read";
-}
-
-
 // Open form
 let open = () => {
     formContainer.classList.add('active');
