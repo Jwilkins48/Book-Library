@@ -25,6 +25,8 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+
+
 // Take input and place in object
 let addToLibrary = () => {
     this.title = bookNameInput.value;
@@ -50,6 +52,9 @@ let addToLibrary = () => {
 // Create new book div
 let createCard = (i) => {
 
+
+
+
     // Creates h2 titles
     let createH2Element = (text) => {
         let element = document.createElement("H2");
@@ -60,20 +65,30 @@ let createCard = (i) => {
     let bookDiv = document.createElement('div');
     bookDiv.classList.add('defaultBook');
 
+    let buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('buttonContainer');
+
     let deleteCard = document.createElement('button');
     deleteCard.textContent = 'Delete';
     deleteCard.classList.add('delete');
 
+    let changeStatus = document.createElement('button');
+    changeStatus.textContent = 'Change Status';
+    changeStatus.classList.add('delete');
+
     // Creating h1 book title
     let titleDiv = document.createElement('h1');
     titleDiv.textContent = this.title;
+
 
     // Display all on card
     bookDiv.appendChild(titleDiv);
     createH2Element(this.author);
     createH2Element(this.pages);
     createH2Element(this.read);
-    bookDiv.appendChild(deleteCard);
+    buttonDiv.appendChild(deleteCard);
+    buttonDiv.appendChild(changeStatus);
+    bookDiv.appendChild(buttonDiv);
     bookContainer.appendChild(bookDiv);
 
     // Delete button
@@ -81,6 +96,11 @@ let createCard = (i) => {
         bookContainer.removeChild(bookDiv);
         myLibrary.splice(bookDiv, 1);
     });
+
+    changeStatus.addEventListener('click', function(){
+       console.log(this.read);
+    })
+
 
     myLibrary.push(bookDiv);
     console.log(myLibrary);
@@ -94,6 +114,13 @@ let isRead = () => {
         return 'not read'
     }
 }
+
+function changeBookStatus(book) {
+    if (myLibrary[book].read === "read") {
+        myLibrary[book].read = "not read";
+    } else myLibrary[book].read = "read";
+}
+
 
 // Open form
 let open = () => {

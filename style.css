@@ -41,7 +41,7 @@ body {
     color: #1e2222;
     background-color: #76eff3;
     cursor: pointer;
-    margin: 25px auto;
+    margin: 30px auto;
     display: flex;
     justify-content: center;
     font-family: 'Patrick Hand', cursive;
@@ -91,11 +91,16 @@ body {
     font-family: 'Patrick Hand', cursive;
     font-size: 20px;
     padding: 5px;
+    margin-left: 10px;
 }
 .delete:hover{
     background-color: #ff00009c;
     color: #262929;
     border: solid 1px #262929;
+}
+
+.buttonContainer{
+    margin: 5px;
 }
 
 /* Form */
